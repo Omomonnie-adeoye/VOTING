@@ -1,7 +1,11 @@
-def voting_system():
+first_contestant = None
+second_contestant = None
+first_contestant_vote = 0
+second_contestant_vote = 0
+def voting_system():    
     print("welcome to our polls")
     handle_contestant()
-    vote_cotestant()
+    vote_contestant()
     announce_winner()
 
 def handle_contestant():
@@ -11,10 +15,10 @@ def handle_contestant():
     second_contestant = input ("Enter first contestant name: ")
     print(f"{second_contestant} added successfully")
 
-def vote_cotestant():
+def vote_contestant():
     global first_contestant, second_contestant, first_contestant_vote, second_contestant_vote
     print("Which contestant are you voting for?")
-    voter_choice =input(f"1. {first_contestant_vote} 2. {second_contestant_vote}: ")
+    voter_choice = input(f"1. {first_contestant} 2. {second_contestant}: ")
     if(voter_choice == "1"):
         first_contestant_vote = first_contestant_vote + 1
     elif(voter_choice == "2"):
@@ -24,16 +28,17 @@ def vote_cotestant():
     print("Do you want to vote again?")
     vote_again = input ("1. Yes 2. No: ")
     if(vote_again == 1):
-        vote_cotestant()
+        vote_contestant()
     else:
         print("Thanks for voting.")
     announce_winner()
 
-    def announce_winner():
-        if (first_contestant_vote > second_contestant_vote):
-            print(f"{first_contestant} won {second_contestant} with {first_contestant_vote} to {second_contestant_vote}")
-        elif(second_contestant_vote > first_contestant_vote):
-            print(f"{second_contestant} won {first_contestant} with {second_contestant_vote} to {first_contestant_vote}")
-        elif(first_contestant == second_contestant):
-            print(f"Both {first_contestant} and {second_contestant} have {first_contestant_vote}, hence, NO WINNER")
+def announce_winner():
+    if (first_contestant_vote > second_contestant_vote):
+        print(f"{first_contestant} won {second_contestant} with {first_contestant_vote} to {second_contestant_vote}")
+    elif(second_contestant_vote > first_contestant_vote):
+         print(f"{second_contestant} won {first_contestant} with {second_contestant_vote} to {first_contestant_vote}")
+    elif(first_contestant == second_contestant):
+        print(f"Both {first_contestant} and {second_contestant} have {first_contestant_vote}, hence, NO WINNER")
+
 voting_system()
