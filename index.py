@@ -4,15 +4,15 @@ first_contestant_vote = 0
 second_contestant_vote = 0
 def voting_system():    
     print("welcome to our polls")
-    handle_contestant()
+    handle_contestants()
     vote_contestant()
     announce_winner()
 
-def handle_contestant():
+def handle_contestants():
     global first_contestant, second_contestant
-    first_contestant = input ("Enter first contestant name: ")
+    first_contestant = input("Enter first contestant name: ")
     print(f"{first_contestant} added successfully")
-    second_contestant = input ("Enter first contestant name: ")
+    second_contestant = input("Enter second contestant name: ")
     print(f"{second_contestant} added successfully")
 
 def vote_contestant():
@@ -27,11 +27,10 @@ def vote_contestant():
         print("Invalid vote")
     print("Do you want to vote again?")
     vote_again = input ("1. Yes 2. No: ")
-    if(vote_again == 1):
+    if(vote_again == "1"):
         vote_contestant()
     else:
         print("Thanks for voting.")
-    announce_winner()
 
 def announce_winner():
     if (first_contestant_vote > second_contestant_vote):
