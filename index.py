@@ -1,7 +1,3 @@
-first_contestant = None
-second_contestant = None
-first_contestant_vote = 0
-second_contestant_vote = 0
 def voting_system():
     print("welcome to our polls")
     handle_contestant()
